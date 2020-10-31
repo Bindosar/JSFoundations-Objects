@@ -1,3 +1,4 @@
+// const channels = require("./channels.json");
 /**
  * REFERENCES
  *
@@ -12,15 +13,17 @@
  ****************************************************************/
 function getChannelName(channel) {
   // Your code here
+  return channel.name;
 }
-
+// console.log(getChannelName(channels[0]));
 /**************************************************************
  * numberOfVideos(channel)
  * - recieves a channel object
  * - returns the number of videos that channel has
  ****************************************************************/
 function numberOfVideos(channel) {
-  // Your code here
+  // // Your code here
+  return channel.videos.length;
 }
 
 /**************************************************************
@@ -34,8 +37,12 @@ function numberOfVideos(channel) {
  ****************************************************************/
 function channelHasVideo(videoTitle, channel) {
   // Your code here
+  let results = false; //Boolean
+  channel.videos.foreach((videoTitle) => {
+    if (videoTitle === video.title) return true;
+  });
+  return results;
 }
-
 /**************************************************************
  * getChannelByName(channelName, channels):
  * - receives a channel name (string)
@@ -45,7 +52,14 @@ function channelHasVideo(videoTitle, channel) {
  * BONUS: use iteration method `.find()`
  ****************************************************************/
 function getChannelByName(channelName, channels) {
-  // Your code here
+  // katkoot result
+  return channel.find((channel) => channel.name === channelName);
+
+  // katkoot m3'9l result
+  // const theChannelIwant = channels.find(
+  //   (channel) => channel.name === channelName
+  // );
+  // return theChannelIwant;
 }
 
 /**************************************************************
@@ -58,6 +72,7 @@ function getChannelByName(channelName, channels) {
  ****************************************************************/
 function getChannelByVideoTitle(videoTitle, channels) {
   // Your code here
+  return channels.find((channel) => channelHasVideo(videoTitle, channel));
 }
 
 /**************************************************************
@@ -70,6 +85,10 @@ function getChannelByVideoTitle(videoTitle, channels) {
  ****************************************************************/
 function searchChannels(query, channels) {
   // Your code here
+  return channel.filter(
+    (channel) =>
+      channel.name.includes(query) || channel.description.includes(query)
+  );
 }
 
 module.exports = {
